@@ -1,0 +1,293 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, Arial;
+}
+
+.container {
+    margin: 20px auto;
+    width: 1000px;
+}
+
+.row {
+    display: flex;
+}
+
+hr {
+    border: 1px solid #eee;
+}
+
+.game-info {
+    display: flex;
+}
+
+.game-info .game-name {
+    flex: 1;
+}
+
+.game-info .category {
+    flex: 1;
+    text-align: right;
+}
+
+.game-info .category span {
+    text-transform: capitalize;
+    color: #e91e63;
+    font-weight: bold;
+}
+
+.hangman-draw {
+    flex: 1;
+    background-color: #f8f8f8;
+    padding: 20px;
+    height: 324px;
+}
+
+.draw {
+    width: 80px;
+    height: 280px;
+    border-bottom: 4px solid #222;
+    position: relative;
+    margin: auto;
+    left: -60px;
+    display: none;
+}
+
+.stand {
+    position: absolute;
+    width: 4px;
+    background-color: #222;
+    height: 100%;
+    left: 50%;
+    margin-left: -2px;
+    display: none;
+}
+
+.hang {
+    display: none;
+}
+
+.hang::before {
+    content: "";
+    position: absolute;
+    height: 4px;
+    background-color: #222;
+    width: 100px;
+    left: 40px;
+    top: 15px;
+}
+
+.hang::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 30px;
+    background-color: #222;
+    left: 140px;
+    top: 15px;
+
+}
+
+.rope {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+    left: 103.5px;
+    top: 43px;
+    border: 4px dashed #222;
+    display: none;
+}
+
+.head {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 4px solid #222;
+    position: absolute;
+    left: 114px;
+    top: 53px;
+    display: none;
+}
+
+.body {
+    position: absolute;
+    background-color: #222;
+    width: 4px;
+    height: 110px;
+    top: 102px;
+    left: 138px;
+    display: none;
+}
+
+.hands {
+    display: none;
+}
+
+.hands::after,
+.hands::before {
+    content: '';
+    width: 50px;
+    position: absolute;
+    height: 4px;
+    background-color: #222;
+    top: 140px;
+}
+
+.hands::before {
+    left: 93px;
+    transform: rotate(30deg);
+}
+
+.hands::after {
+    left: 136px;
+    transform: rotate(-30deg);
+}
+
+.legs {
+    display: none;
+}
+
+.legs::before,
+.legs::after {
+    content: '';
+    width: 50px;
+    position: absolute;
+    height: 4px;
+    background-color: #222;
+    top: 220px;
+}
+
+.legs::before {
+    left: 92px;
+    transform: rotate(-30deg);
+}
+
+.legs::after {
+    left: 135px;
+    transform: rotate(30deg);
+}
+
+
+.hangman-draw.Wrong-1 .draw {
+    display: block;
+}
+
+.hangman-draw.Wrong-2 .stand {
+    display: block;
+}
+
+.hangman-draw.Wrong-3 .hang {
+    display: block;
+}
+
+
+.hangman-draw.Wrong-4 .rope {
+    display: block;
+}
+
+
+.hangman-draw.Wrong-5 .head {
+    display: block;
+}
+
+.hangman-draw.Wrong-6 .body {
+    display: block;
+}
+
+.hangman-draw.Wrong-7 .hands {
+    display: block;
+}
+
+.hangman-draw.Wrong-8 .legs {
+    display: block;
+}
+
+
+.letters.finished {
+    pointer-events: none;
+}
+
+
+.letters {
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+}
+
+
+.letter-box {
+    width: 55px;
+    height: 55px;
+    display: inline-block;
+    background-color: green;
+    color: #fff;
+    font-size: 24px;
+    margin-right: 10px;
+    line-height: 55px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.clicked {
+    background-color: #222;
+    opacity: .2;
+    pointer-events: none;
+}
+
+.letters-guess {
+    margin: 10px auto;
+    background-color: #f8f8f8;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 104px;
+}
+
+.letters-guess span {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #fdfdfd;
+    border-bottom: 3px solid #222;
+    transition: 0.3s;
+}
+
+.letters-guess span.SpaceLetter {
+    background: none;
+    border-bottom: none;
+    position: relative;
+}
+
+.letters-guess span.SpaceLetter::before {
+    content: '';
+    width: 20px;
+    height: 4px;
+    background-color: #222;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup {
+    position: fixed;
+    background-color: red;
+    padding: 70px 20px;
+    width: 80%;
+    top: 73%;
+    left: 10%;
+    text-align: center;
+    border: 1px solid #ccc;
+    color: #fff;
+    font-size: 25px;
+    background-color: red;
+}
